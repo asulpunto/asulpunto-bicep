@@ -25,3 +25,6 @@ resource routeTable 'Microsoft.Network/routeTables@2023-04-01' = {
     ]
   }
 }
+
+output routeTableId string = routeTable.id
+output routeTableName string = routeTable.name

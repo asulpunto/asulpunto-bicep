@@ -17,6 +17,10 @@ param nsgId string = ''
 @description('Array of Azure Service Endpoints. Example:[Microsoft.Storage, Microsoft.Keyvault]')
 param endPoints array = [] 
 
+@description('Route Table Id to be associated with the subnet. If empty, the route table association will not be changed.')
+param routeTableId string = ''
+
+
 @description('Decide what to do with the service endpoints. REPLACE will replace the endpoints with the endPoint array. APPEND will add to the existing endpoints')
 @allowed([
     'REPLACE'
@@ -53,6 +57,7 @@ properties: {
     addressPrefix: snet.properties.addressPrefix
     networkSecurityGroup: (empty(nsgId))?null: {id: nsgId}
     serviceEndpoints: (endPointsMode=='APPEND')? appendEndPoints: endPointsObj
+    routeTable: (empty(routeTableId))?null: {id: routeTableId}
  }
 } 
 
