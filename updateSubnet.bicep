@@ -36,7 +36,7 @@ var delegationsObj= {
     type: 'Microsoft.Network/virtualNetworks/subnets/delegations'
 }    
 
-resource vnet 'Microsoft.Network/virtualNetworks@2022-01-01' existing = {
+resource vnet 'Microsoft.Network/virtualNetworks@2024-07-01' existing = {
     name: vnetName
 }
 
@@ -49,7 +49,7 @@ var endPointsObj=[for item in endPoints: {
 
 var appendEndPoints=union(snet.properties.serviceEndpoints,endPointsObj)
 
-resource subnetUpdate 'Microsoft.Network/virtualNetworks/subnets@2022-07-01' ={
+resource subnetUpdate 'Microsoft.Network/virtualNetworks/subnets@2024-07-01' ={
 name: subnetName
 parent: vnet
 properties: {

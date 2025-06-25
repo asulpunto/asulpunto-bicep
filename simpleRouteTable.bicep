@@ -11,7 +11,7 @@ param location string = resourceGroup().location
 @description('Array of Azure Service Tags to be included in the route table. Example: ["ApiManagement", "AzureFrontDoor"]. Required.')
 param serviceTags array 
 
-resource routeTable 'Microsoft.Network/routeTables@2023-04-01' = {
+resource routeTable 'Microsoft.Network/routeTables@2024-07-01' = {
   name: routeTableName
   location: location
   properties: {
